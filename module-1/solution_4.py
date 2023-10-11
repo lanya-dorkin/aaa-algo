@@ -24,5 +24,5 @@ def solution():
     print(result)
 
 
-if __name__ == '__name__':
+if __name__ == '__main__':
     solution()
