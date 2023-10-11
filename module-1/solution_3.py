@@ -18,4 +18,5 @@ def solution():
     print(result)
 
 
-solution()
+if __name__ == '__name__':
+    solution()

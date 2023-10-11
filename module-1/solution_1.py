@@ -14,4 +14,5 @@ def solution():
     print(c)
 
 
-solution()
+if __name__ == '__name__':
+    solution()
