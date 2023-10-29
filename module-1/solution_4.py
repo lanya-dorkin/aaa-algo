@@ -1,21 +1,24 @@
 def max_div3_sum(numbers: list) -> int:
-    s = 0
-    m1, m2 = float('inf'), float('inf')
-    m3, m4 = float('inf'), float('inf')
+    sum_total = 0
+    min_mod1 = second_min_mod1 = float('inf')
+    min_mod2 = second_min_mod2 = float('inf')
 
-    for n in numbers:
-        s += n
-        if n % 3 == 1:
-            m1, m2, _ = sorted((m2, m1, n))
-        elif n % 3 == 2:
-            m3, m4, _ = sorted((m4, m3, n))
+    for num in numbers:
+        sum_total += num
+        if num % 3 == 1:
+            min_mod1, second_min_mod1, _ = sorted(
+                (second_min_mod1, min_mod1, num)
+            )
+        elif num % 3 == 2:
+            min_mod2, second_min_mod2, _ = sorted(
+                (second_min_mod2, min_mod2, num)
+            )
 
-    if s % 3 == 0:
-        return s
-    elif s % 3 == 1:
-        return s - min(m1, m3 + m4)
-    else:
-        return s - min(m3, m1 + m2)
+    if sum_total % 3 == 0:
+        return sum_total
+    if sum_total % 3 == 1:
+        return sum_total - min(min_mod1, min_mod2 + second_min_mod2)
+    return sum_total - min(min_mod2, min_mod1 + second_min_mod1)
 
 
 def solution():

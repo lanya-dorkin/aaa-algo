@@ -1,15 +1,14 @@
 def max_even_sum(numbers: list) -> int:
-    s, m = 0, float('inf')
+    total_sum, min_odd_element = 0, float('inf')
 
-    for n in numbers:
-        s += n
-        if n % 2 != 0:
-            m = min(m, n)
+    for num in numbers:
+        total_sum += num
+        if num % 2 != 0:
+            min_odd_element = min(min_odd_element, num)
 
-    if s % 2 == 0:
-        return s
-    else:
-        return s - m
+    if total_sum % 2 == 0:
+        return total_sum
+    return total_sum - min_odd_element
 
 
 def solution():
